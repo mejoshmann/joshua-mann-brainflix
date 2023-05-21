@@ -15,6 +15,8 @@ function Navigation() {
                         <label htmlFor="search" className="nav__input">
                             <input type="text" className="nav__search" id="search" placeholder="Search" />
                         </label>
+                        <button className="nav__upload hidden">UPLOAD</button>
+
                         <img src={avatar} alt="BrainFlix Avatar" className="nav__avatar" />
                     </div>
     

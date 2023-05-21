@@ -8,11 +8,6 @@
   font-family: "avenir";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -32,6 +27,15 @@
   flex-direction: column;
   padding: 0.81rem 1.75rem;
 }
+@media screen and (min-width: 768px) {
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red;
+  }
+}
 .nav__head {
   padding: 1rem;
   text-align: center;
@@ -45,24 +49,41 @@
   flex-direction: row;
   justify-content: space-between;
 }
+@media screen and (min-width: 768px) {
+  .nav__head-box {
+    border: 1px solid green;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}
 .nav__input {
   width: 81%;
-  height: auto;
-  border-radius: 4px;
-  border: 1px solid #e1e1e1;
+}
+@media screen and (min-width: 768px) {
+  .nav__input {
+    width: 40%;
+  }
 }
 .nav__search {
   width: 100%;
   height: 4rem;
-  border-radius: 4px;
+  border-radius: 6px;
   border: 1px #e1e1e1;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   background-image: url(../src/assets/Icons/search.svg);
   background-repeat: no-repeat;
   background-position: 3%, 25%;
   background-size: 2rem;
   font-size: 1.5rem;
   padding-left: 4rem;
+  border: 1px solid #afafaf;
+}
+@media screen and (min-width: 768px) {
+  .nav__search {
+    background-size: 1.75rem;
+    font-size: 1.25rem;
+  }
 }
 .nav__avatar {
   border-radius: 50%;
@@ -71,105 +92,243 @@
   background-size: cover;
 }
 .nav__upload {
+  background-image: url(./assets/Icons/upload.svg);
+  height: 4.25rem;
   background-color: #0095FF;
   color: #fff;
-  height: 4rem;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   font-size: 1.5rem;
   font-weight: 500;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   border: none;
   font-weight: 600;
-  background-image: url(./assets/Icons/upload.svg);
   background-repeat: no-repeat;
-  background-position: 3%, 25%;
-  background-size: 2.3rem;
+  background-position: 5% 60%;
+  background-size: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .nav__upload {
+    display: none;
+    width: 40%;
+  }
+}
+.nav .hidden {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .nav .hidden {
+    display: block;
+  }
 }
 .nav__upload:hover {
   cursor: pointer;
   background-color: #0065AD;
 }
 
-.video {
+.main {
   padding-top: 1rem;
 }
-.video__container-image {
-  width: 100vw;
+.main__tablet {
+  background-color: #000;
 }
-.video__container-box {
-  padding: 1.5rem;
+
+.video {
+  padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .video {
+    width: 95%;
+    margin-left: 2.5%;
+  }
+}
+.video__image {
+  width: 100vw;
+  height: auto;
+}
+@media screen and (min-width: 768px) {
+  .video__image {
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 .video__heading {
   border-bottom: 2px solid #f1f1f1;
   font-size: 2.5rem;
-  padding: 1.5rem;
+  padding: 0.5rem 0;
   text-align: left;
 }
+@media screen and (min-width: 768px) {
+  .video__heading {
+    font-size: 2.75rem;
+    font-weight: 700;
+    border: 0;
+  }
+}
 .video__box {
-  border-bottom: 2px solid #f1f1f1;
+  border-bottom: 2px solid #e1e1e1;
   display: flex;
   flex: row;
   flex-wrap: wrap;
   padding: 1rem 0;
 }
-.video__channel, .video__likes, .video__date, .video__likes {
+@media screen and (min-width: 768px) {
+  .video__box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.video__channel, .video__like-box, .video__date, .video__view-box {
   width: 50%;
   height: 3rem;
   display: flex;
   align-items: center;
   justify-content: left;
-  padding-left: 1.5rem;
+  padding: 2rem 0;
+  font-size: 1.4rem;
+}
+@media screen and (min-width: 768px) {
+  .video__channel, .video__like-box, .video__date, .video__view-box {
+    width: auto;
+    border: 1px solid red;
+  }
+}
+@media screen and (min-width: 768px) {
+  .video__views--tablet, .video__like--tablet {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.video__views, .video__date, .video__likes {
+  color: #afafaf;
 }
 .video__icon-views, .video__icon-likes {
   width: 2.5rem;
-  height: 2.5rem;
+  height: 2rem;
   margin-right: 1rem;
 }
 .video__container-comment {
   text-align: left;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
   font-size: 1.5rem;
   line-height: 1.3;
+}
+@media screen and (min-width: 768px) {
+  .video__container-comment {
+    padding-bottom: 2.5rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+}
+.video__count {
+  font-size: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .video__count {
+    font-size: 1.25rem;
+  }
 }
 
 .comments {
   display: flex;
   flex-direction: row;
-  padding: 1.5rem;
+  padding: 0 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .comments {
+    width: 90%;
+    margin-left: 5%;
+    padding: 0;
+  }
 }
 .comments__avatar {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  margin-top: 1.5rem;
+  margin-top: 4rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .comments__form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-left: 1rem;
+  margin-left: 1.25rem;
   padding: 1rem 0;
+}
+@media screen and (min-width: 768px) {
+  .comments__form {
+    display: flex;
+  }
 }
 .comments__form-heading {
   text-align: left;
+  color: #afafaf;
+  font-size: 1.25rem;
+  padding: 0.5rem 0;
+}
+.comments__label {
+  border: 1px solid red;
+}
+@media screen and (min-width: 768px) {
+  .comments__label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 2%;
+  }
 }
 .comments__input {
   width: 100%;
-  height: 6rem;
+  height: 11rem;
   margin-bottom: 1rem;
+  background-color: #fafafa;
+  border-radius: 6px;
+  border: 2px solid #e1e1e1;
+  resize: none;
+}
+@media screen and (min-width: 768px) {
+  .comments__input {
+    height: 4rem;
+  }
+}
+.comments__input::-moz-placeholder {
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: "avenir";
+  color: #000;
+  text-align: left;
+  padding: 1rem;
+}
+.comments__input::placeholder {
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: "avenir";
+  color: #000;
+  text-align: left;
+  padding: 1rem;
 }
 .comments__button {
-  width: 100%;
-  background-color: #0095ff;
-  height: 4rem;
-  border: none;
-  border-radius: 4px;
+  background-color: #0095FF;
   color: #fff;
+  border-radius: 0.4rem;
   font-size: 1.5rem;
-  background-image: url(../src/assets/Icons/add_comment.svg);
+  font-weight: 500;
+  margin-top: 1rem;
+  border: none;
+  font-weight: 600;
   background-repeat: no-repeat;
+  background-position: 5% 60%;
   background-size: 2rem;
-  background-position: 5%, 25%;
+  width: 100%;
+  height: 4rem;
+  background-image: url(../src/assets/Icons/add_comment.svg);
+}
+@media screen and (min-width: 768px) {
+  .comments__button {
+    width: 40%;
+    margin-left: 4%;
+  }
 }
 .comments__count {
   text-align: left;
@@ -177,9 +336,16 @@
 }
 
 .comment {
-  padding: 1.5rem;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
+  border-top: 2px solid #e1e1e1;
+}
+@media screen and (min-width: 768px) {
+  .comment {
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 .comment__list {
   list-style-type: none;
@@ -187,14 +353,12 @@
 .comment__boxes {
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid #e1e1e1;
-  padding: 1rem 0;
-}
-.comment .topComment {
-  border-top: 1px solid #f1f1f1;
+  border-bottom: 2px solid #e1e1e1;
+  padding: 1rem 0.5rem;
+  padding: 2rem 0;
 }
 .comment__blank {
-  width: 4rem;
+  width: 4.6rem;
   height: 4rem;
   border-radius: 50%;
   background-color: #e1e1e1;
@@ -205,14 +369,43 @@
   flex-direction: column;
   width: 100%;
 }
+@media screen and (min-width: 768px) {
+  .comment__box {
+    margin-left: 2%;
+  }
+}
 .comment__heading-box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 1rem;
 }
+.comment__name {
+  font-size: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .comment__name {
+    font-size: 1.25rem;
+  }
+}
+.comment__date {
+  font-size: 1.5rem;
+  color: #afafaf;
+}
+@media screen and (min-width: 768px) {
+  .comment__date {
+    font-size: 1.25rem;
+  }
+}
 .comment__comment {
   text-align: left;
+  font-size: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .comment__comment {
+    font-size: 1.25rem;
+    width: 95%;
+  }
 }
 
 .thumbnail {
@@ -221,41 +414,76 @@
 .thumbnail__list {
   list-style-type: none;
 }
+@media screen and (min-width: 768px) {
+  .thumbnail__list {
+    width: 90%;
+    margin-left: 2.5%;
+  }
+}
 .thumbnail__item {
   display: flex;
   flex-direction: row;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .thumbnail__item {
+    margin-bottom: 2rem;
+  }
 }
 .thumbnail__heading {
   text-align: left;
   padding-bottom: 1rem;
   color: #afafaf;
 }
+@media screen and (min-width: 768px) {
+  .thumbnail__heading {
+    margin-left: 2.5%;
+    font-size: 0.81rem;
+    margin-bottom: 1.25rem;
+  }
+}
 .thumbnail__box {
   display: flex;
   flex-direction: column;
+  width: 65%;
+  justify-content: space-between;
+  margin-left: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .thumbnail__box {
+    width: 40%;
+  }
 }
 .thumbnail__img {
-  width: 10rem;
-  height: 6rem;
-  aspect-ratio: 2;
-  border-radius: 15px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 35%;
+  height: 7rem;
+  border-radius: 8px;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
-.thumbnail__info-box {
-  display: flex;
-  flex-direction: column;
-  padding: 0 0 0 1.5rem;
-  border: 1px solid black;
+@media screen and (min-width: 768px) {
+  .thumbnail__img {
+    width: 20%;
+    height: 6rem;
+  }
 }
-.thumbnail__img-heading {
+.thumbnail__title {
   text-align: left;
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.5;
-  padding-bottom: 1rem;
 }
-.thumbnail__img-name {
+@media screen and (min-width: 768px) {
+  .thumbnail__title {
+    font-size: 1.25rem;
+  }
+}
+.thumbnail__name {
   text-align: left;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .thumbnail__name {
+    font-size: 1.25rem;
+  }
 }/*# sourceMappingURL=App.css.map */

@@ -1,5 +1,12 @@
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1279px;
+$brainflix-black: #323232;
+$brainflix-blue: #0095ff;
+$brainflix-drkBlue: #0065ad;
+$silver: #afafaf;
+$mercury: #e1e1e1;
+$alabaster: #fafafa;
+
 
 
 
@@ -20,21 +27,20 @@ $desktop-breakpoint: 1279px;
 
 }
 
-@mixin show-buttons {
-    background-color: #323232;
+@mixin buttons {
+    background-color: #0095FF;
     color: #fff;
-    border: 0;
-    border-radius: 4px;
-    width: 100%;
-    height: 3rem;
-    margin-top: 1rem;  
+    border-radius: .4rem;
     font-size: 1.5rem;
-
-}
-
-@mixin hero-overlay {
-    box-shadow: inset 0 0 0 1000px rgba(50, 50, 50, 0.5);
-    background-size: cover;
+    font-weight: 500;
+    margin-top: 1rem;
+    border: none;
+    font-weight: 600;
     background-repeat: no-repeat;
-    display: flex;
+    background-position: 5% 60%;
+    background-size: 2rem;
+
 }
+
+
+

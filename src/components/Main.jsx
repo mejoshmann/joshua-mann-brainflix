@@ -5,38 +5,40 @@ import views from '../assets/Icons/views.svg'
 
 function Main(props) {
     return(
-       <main className="video">
-      
-       <div className="video__container">
-           <video className="video__container-image" controls poster={props.selectedVideo.image}>
+       <main className="main">
+
+          <div className="main__tablet">
+           <video className="video__image" controls poster={props.selectedVideo.image}>
              
            </video>
-           
-         </div>
+           </div>
+            <div className="video">
+
          <h1 className="video__heading">{props.selectedVideo.title}</h1>
 
    <div className="video__box">
+    <div className="video__views--tablet">
      <h3 className="video__channel">By {props.selectedVideo.channel}</h3>
-     <div className="video__likes">
+     <div className="video__view-box">
      <img className="video__icon-views" src={views} alt="Views Icon" />
-     <p>{props.selectedVideo.views}</p>
+     <p className="video__views">{props.selectedVideo.views}</p>
+       </div>
        </div>
 
+      <div className="video__like--tablet">
    <div className="video__date">{props.selectedVideo.timestamp}</div>
-     <div className="video__likes">
+     <div className="video__like-box">
          <img src={heart} alt="" className="video__icon-likes" />
-         <p>{props.selectedVideo.likes}</p>
+         <p className="video__likes">{props.selectedVideo.likes}</p>
+               </div>
                </div>
        </div> 
 {/* TODO  add prevent default */}
 <p className="video__container-comment">{props.selectedVideo.description}</p>
-<h3 className="comments__count">{props.selectedVideo.comments.length} Comments</h3>
-
+<h3 className="video__count">{props.selectedVideo.comments.length} Comments</h3>
+</div>
 </main>
     )
 }    
      
-     
- 
-
 export default Main;
