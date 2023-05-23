@@ -68,6 +68,7 @@
     
   }
 
+
   &__search {
     width: 100%;
     height: 2.5rem;
@@ -96,6 +97,10 @@
     }
   }
 
+  &__search:active {
+    border: 2px solid $brainflix-blue;
+  }
+
   &__avatar {
    @include avatar;
 
@@ -104,9 +109,7 @@
     height: 3rem;
    }
 
-    @include desktop {
-    
-  }
+ 
   }
 
   
@@ -405,6 +408,9 @@
       @include input;
     }
    
+  }
+  &__input:active {
+    border: 2px solid $brainflix-blue;
   }
 
   &__input::placeholder {
