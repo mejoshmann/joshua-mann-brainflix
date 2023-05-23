@@ -28,18 +28,32 @@ $alabaster: #fafafa;
 }
 
 @mixin buttons {
-    background-color: #0095FF;
+    background-color: $brainflix-blue;
     color: #fff;
-    border-radius: .4rem;
-    font-size: 1.5rem;
+    border-radius: 4px;
+    font-size: .81rem;
     font-weight: 500;
-    margin-top: 1rem;
     border: none;
     font-weight: 600;
     background-repeat: no-repeat;
     background-position: 5% 60%;
-    background-size: 2rem;
+    background-size: 1.25rem;
+    cursor: pointer;
 
+}
+
+@mixin input {
+    background-color: $alabaster;
+    border: 1px solid $mercury;
+    border-radius: 4px;
+    
+}
+
+@mixin avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 

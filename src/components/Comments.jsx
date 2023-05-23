@@ -3,7 +3,7 @@ import avatar from '../assets/images/Mohan-muruge.jpg';
 
 function Comments(props) {
   return(
-<>
+<div className="desktop">
       <section className="comments">
 
         <img src={avatar} alt="BrainFlix Avatar" className="comments__avatar" />
@@ -21,7 +21,7 @@ function Comments(props) {
           <ul className="comment__list">
             {props.selectedVideo.comments.map((comment, index)=> (
               <li className="comment__item" key={index}>
-                <div className="comment__boxes topComment">
+                <div className="comment__boxes">
                   <div className="comment__blank"></div>
                     <div className="comment__box">
                       <div className="comment__heading-box" >
@@ -36,7 +36,7 @@ function Comments(props) {
               ))}
             </ul>
         </section>
-</>
+</div>
   )
 }
 
