@@ -1,39 +1,26 @@
-import {useState} from 'react';
-import videoThumbnails from './data/videos.json';
-import videoDetailsJson from './data/video-details.json';
-import '../src/App.scss';
-import Nav from './components/Nav';
-import Main from './components/Main';
-import Comments from './components/Comments';
-import Thumbnails from './components/Thumbnails';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "../src/App.scss";
+import Upload from "./pages/Upload";
+import Home from "./pages/Home";
+
+// apiKey = {"api_key":"56fdb86b-8784-43a2-9393-b383c6e4302d"}
 
 function App() {
-// Set state for main video
-  const [videoData, setVideoData] = useState(videoDetailsJson);  
-  // set selected video
-  const [selectedVideo, setSelectedVideo] = useState(videoData[0]);
 
-  // Set state for thumbnail images
-  const [videoThumbs, setVideoThumbs] = useState(videoThumbnails);
-
-  // Click function to set new ideo
-  const handleVideoSelection = (id)=> {
-    const foundVideo = videoDetailsJson.find((thumbnail) => thumbnail.id === id );
-    setSelectedVideo(foundVideo);
-  };
 
   return (
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
 
-<Nav />
-<Main selectedVideo={selectedVideo} />
-<Comments selectedVideo={selectedVideo} />
-<Thumbnails selectedVideo={selectedVideo}
-            handleVideoSelection={handleVideoSelection}
-            videoThumbs={videoThumbs} />
-
-    </div>
-  )
+        <Routes>
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/videos" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;

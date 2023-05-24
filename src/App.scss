@@ -1,5 +1,5 @@
-@use "../src/assets/fonts/fonts.scss" as *;
-@use "../src/styles/partials/mixins.scss" as *;
+@use "./styles/partials/fonts" as *;
+@use "./styles/mixins/mixins" as *;
 
 * {
   box-sizing: border-box;
@@ -9,7 +9,7 @@
 
 
 .App {
-  font-family: "avenir";
+  font-family: "avenir", cursive;
 }
 
 // Navigation Section
@@ -118,6 +118,7 @@
         background-image: url(./assets/Icons/upload.svg);
         height: 2.5rem;
         margin-top: 1rem;
+        width: 100%;
         @include buttons;
 
         @include tablet {

@@ -1,0 +1,140 @@
+// @use "/src/assets/fonts/fonts.scss" as *;
+// @use "/src/styles/partials/nav.scss" as *;
+// @use "/src/styles/mixins/mixins" as *;
+
+// .nav {
+//     display: flex;
+//     flex-direction: column;
+//     padding: 0 1rem ;
+    
+  
+//     @include tablet {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//       justify-content: space-between;
+//       padding: 1rem 
+//     }
+  
+//     @include desktop {
+//       padding: .5rem 7%;
+//     }
+  
+//     &__head {
+//       padding: 1rem;
+//       text-align: center;
+//     }
+  
+//     &__logo {
+//       height: 1.5rem;
+//     }
+  
+//     &__head-box {
+//       height: auto;
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: space-between;
+  
+//       @include tablet {
+//         align-items: center;
+//         justify-content: space-around;
+//         width: 100%;
+//       }
+  
+//       @include desktop {
+//         width: 50%;
+//         justify-content: space-evenly;
+//       }
+//     }
+  
+//     &__input {
+//       width: 81%;
+  
+//       @include tablet {
+//         width: 40%;
+//       }
+      
+//     }
+  
+  
+//     &__search {
+//       width: 100%;
+//       height: 2.5rem;
+//       background-image: url(../src/assets/Icons/search.svg);
+//       background-repeat: no-repeat;
+//       background-position:  3%, 25%;
+//       background-size: 1.2rem;
+//       padding-left: 2.5rem;
+//       @include input;
+  
+//       @include tablet {
+//         background-size: 1.5rem;
+//         font-size: 1.25rem;
+//         height: 3rem;
+//         margin-left: 2rem;
+//         background-size: 1.5rem;
+//       }
+  
+//       @include desktop {
+//         height: 2.5rem;
+//         width: 100%;
+//         background-size: 1.25rem;
+//         background-position: 8%, 25%;
+//         padding-left: 20%;
+//         font-size: .87rem;
+//       }
+//     }
+  
+//     &__search:active {
+//       border: 2px solid $brainflix-blue;
+//     }
+  
+//     &__avatar {
+//      @include avatar;
+  
+//      @include tablet {
+//       width: 3rem;
+//       height: 3rem;
+//      }
+  
+   
+//     }
+  
+    
+  
+//     &__upload {
+//           background-image: url(./assets/Icons/upload.svg);
+//           height: 2.5rem;
+//           margin-top: 1rem;
+//           width: 100%;
+//           @include buttons;
+  
+//           @include tablet {
+//             display: none;
+//             width: 40%;
+//           }
+//     }
+  
+  
+//   .hidden {
+//       display: none;
+  
+//       @include tablet {
+//         display: inline;
+//         height: 3rem;
+//         margin-top: 0;
+//         width: 30%;
+//       }
+  
+//       @include desktop {
+//         height: 2.5rem;
+//         margin-left: 1rem;
+//       }
+//   }
+  
+//     &__upload:hover {
+//       background-color: $brainflix-drkBlue;
+//     }
+  
+//   }
+  
