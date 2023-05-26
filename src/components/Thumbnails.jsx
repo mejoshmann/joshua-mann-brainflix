@@ -3,16 +3,17 @@ import { Link } from "react-router-dom";
 
 function Thumbnails(props) {
   const { videoThumbs } = props;
+  const { selectedVideo } = props;
 
   return (
     <section className="thumbnail">
       <h2 className="thumbnail__heading">NEXT VIDEOS</h2>
       <ul className="thumbnail__list">
         {videoThumbs
-          .filter((thumbnail) => thumbnail.id !== videoThumbs.id)
+          .filter((thumbnail) => thumbnail.id !== selectedVideo.id)
           .map((thumbnail) => (
             <li className="thumbnail__item" key={thumbnail.id}>
-              <Link to={`/videos/:${thumbnail.id}`}>
+              <Link to={`/videos/${thumbnail.id}`} className="thumbnail__link">
                 <img
                   src={thumbnail.image}
                   className="thumbnail__img"
@@ -29,5 +30,4 @@ function Thumbnails(props) {
     </section>
   );
 }
-
 export default Thumbnails;

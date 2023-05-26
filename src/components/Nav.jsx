@@ -7,7 +7,7 @@ function Navigation() {
     <>
       <nav className="nav">
         <div className="nav__head">
-          <Link to="/home">
+          <Link to="/home" >
             <img src={logoImage} alt="BrainFlix Logo" className="nav__logo" />
           </Link>
         </div>

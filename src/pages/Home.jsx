@@ -36,8 +36,6 @@ function Home() {
         }
       },[params.id, videoData]);
 
-console.log(selectedVideo)
-
   return (
     <>
       <Nav />

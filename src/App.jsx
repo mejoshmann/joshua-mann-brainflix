@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "../src/App.scss";
 import Upload from "./pages/Upload";
 import Home from "./pages/Home";
@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home/>} />
           <Route path="/upload" element={<Upload />} />
-          <Route path="/videos:.id" element={<Navigate to="/" />} />
+          <Route path="/videos/:id" element={<Home />} />
           
         </Routes>
       </div>
