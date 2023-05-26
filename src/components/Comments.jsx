@@ -1,7 +1,8 @@
-import '../App.scss'
 import avatar from '../assets/images/Mohan-muruge.jpg';
 
 function Comments(props) {
+
+
   return(
 <div className="desktop">
       <section className="comments">
@@ -19,7 +20,7 @@ function Comments(props) {
 
         <section className="comment">
           <ul className="comment__list">
-            {props.selectedVideo.comments.map((comment, index)=> (
+            {props.selectedVideo.comments?.map((comment, index)=> (
               <li className="comment__item" key={index}>
                 <div className="comment__boxes">
                   <div className="comment__blank"></div>

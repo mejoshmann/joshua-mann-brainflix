@@ -1,4 +1,3 @@
-import '../App.scss';
 import uploadImage from '../assets/images/Upload-video-preview.jpg';
 import Nav from '../components/Nav';
 import '../styles/partials/_upload.scss';

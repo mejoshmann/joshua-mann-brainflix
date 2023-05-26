@@ -1,39 +1,58 @@
-import { useState } from "react";
-import videoThumbnails from "../data/videos.json";
-import videoDetailsJson from "../data/video-details.json";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import Main from "../components/Main";
 import Comments from "../components/Comments";
 import Thumbnails from "../components/Thumbnails";
+import axios from "axios";
+const apiKey = "56fdb86b-8784-43a2-9393-b383c6e4302d";
 
 function Home() {
+  const [videoData, setVideoData] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState({});
+  const params = useParams();
 
-    const [videoData, setVideoData] = useState(videoDetailsJson);
-  // set selected video
-  const [selectedVideo, setSelectedVideo] = useState(videoData[0]);
+  useEffect(() => {
+          axios
+            .get(`https://project-2-api.herokuapp.com/videos/?api_key=${apiKey}`)
+            .then((response) => {
+              setVideoData(response.data);
+            });
+      }, []);
 
-  // Set state for thumbnail images
-  const [videoThumbs, setVideoThumbs] = useState(videoThumbnails);
+      useEffect(() => {
+        if (params.id) {
+          axios
+          .get(`https://project-2-api.herokuapp.com/videos/${params.id}?api_key=${apiKey}`)
+          .then((response) => {
+            setSelectedVideo(response.data);
+          }) 
+        } else if (videoData.length > 0){
+          axios
+          .get(`https://project-2-api.herokuapp.com/videos/${videoData[0].id}?api_key=${apiKey}`)
+          .then((response) => {
+            setSelectedVideo(response.data);
+          }) 
+        }
+      },[params.id, videoData]);
 
-  // Click function to set new ideo
-  const handleVideoSelection = (id) => {
-    const foundVideo = videoDetailsJson.find(
-      (thumbnail) => thumbnail.id === id
-    );
-    setSelectedVideo(foundVideo);
-  };
+console.log(selectedVideo)
 
-    return(
-        <>
-        <Nav />
-        <Main       selectedVideo={selectedVideo} />
-        <Comments   selectedVideo={selectedVideo} />
-        <Thumbnails selectedVideo={selectedVideo}
-                    handleVideoSelection={handleVideoSelection}
-                    videoThumbs={videoThumbs}/>
-
-        </>
-    )
+  return (
+    <>
+      <Nav />
+      <Main selectedVideo={selectedVideo} />
+      <Comments selectedVideo={selectedVideo} />
+      <Thumbnails
+        selectedVideo={selectedVideo} 
+        videoThumbs={videoData} 
+       /> 
+    </>
+  );
 }
 
 export default Home;
+
+
+
+
