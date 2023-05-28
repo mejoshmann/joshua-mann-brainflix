@@ -1,0 +1,121 @@
+@use "../../src/styles/mixins/mixins" as *;
+
+.nav__upload--page {
+  border-bottom: 1px solid $mercury;
+  padding-bottom: 1rem;
+}
+
+.videoThumb {
+  padding: 0 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    width: 85%;
+    margin-left: 7.5%;
+    display: flex;
+  }
+
+  &__desktop {
+    border: 1px solid red;
+  }
+
+  &__main--heading {
+    font-size: 2rem;
+    padding: 1rem 0;
+
+    @include desktop {
+      border-bottom: 1px solid $mercury;
+    }
+  }
+
+  &__heading {
+    color: $silver;
+    font-size: 1rem;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+
+  &__thumbnail {
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+    padding-bottom: 1rem;
+
+    @include tablet {
+      width: 30%;
+    }
+  }
+
+  &__form {
+  }
+
+  &__label,
+  &__description {
+    color: $silver;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__addVid,
+  &__videoDescript {
+    @include input;
+    width: 100%;
+    height: 2.5rem;
+    padding: 0.5rem;
+    color: #000;
+    margin: 0.25rem 0 1rem 0;
+  }
+
+  &__videoDescript {
+    height: 7rem;
+    resize: none;
+  }
+
+  &__videoDescript::placeholder {
+    padding-top: -2rem;
+  }
+
+  &__videoDescript:active {
+    border: 2px solid $brainflix-blue;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  &__publish {
+    @include buttons;
+    width: 100%;
+    height: 2.5rem;
+    background-image: url("../assets/Icons/publish.svg");
+    background-repeat: no-repeat;
+
+    @include tablet {
+      width: 20%;
+      order: 2;
+    }
+  }
+
+  &__cancel {
+    color: $brainflix-blue;
+    border: #fff;
+    background-color: #fff;
+    padding: 10%;
+
+    @include tablet {
+      padding: 0 4rem;
+      order: 1;
+    }
+
+    @include desktop {
+    }
+  }
+}

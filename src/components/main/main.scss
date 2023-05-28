@@ -1,0 +1,174 @@
+@use '../../styles/mixins/mixins' as *;
+
+.main {
+    padding-top: 1rem;
+  
+      &__desktop {
+        @include desktop {
+          display: inline-block;
+          margin-left: 10%;
+        
+        }
+      }
+    
+  
+    @include tablet {
+      padding-top: 0;
+    }
+  
+  &__tablet {
+          background-color: #000;
+    }
+  
+  }
+  
+  .video {
+    padding: 1.5rem 1.5rem .5rem 1.5rem;
+  
+    @include tablet {
+      width: 95%;
+      margin-left: 2.5%;
+    }
+  
+    @include desktop{
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+      width: 65%;
+    }
+  
+  &__image {
+    width: 100vw;
+    aspect-ratio: 16 / 9 ;
+  
+    @include tablet {
+      width: 90%;
+      margin-left: 5%;
+    }
+  
+    @include desktop {
+      width: 70%;
+      margin-left: 15%;
+    }
+  }
+  
+  &__heading {
+    border-bottom: 2px solid #f1f1f1;
+    font-size: 2rem;
+    padding: .5rem 0;
+    text-align: left;
+  
+    @include tablet {
+      font-size: 2.5rem;
+      font-weight: 700;
+      border: 0;
+    }
+  
+    @include desktop {
+      width: 100%;
+      padding: 1.5rem 0 1rem 0;
+      font-size: 2rem;
+    
+    }
+  }
+  
+  &__box {
+    border-bottom: 1px solid $mercury;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    @include desktop {
+      border-bottom: 1px solid $mercury;
+      padding-bottom: .5rem;
+    }
+  }
+  
+  &__channel,
+  &__like-box,
+  &__date,
+  &__view-box {
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: .5rem 0;
+    font-size: 1rem;
+  
+    @include tablet {
+      width: auto;
+      padding: 0 1rem .5rem 0;
+    }
+  
+    @include desktop {
+      font-size: 1rem;
+      padding: 0 1rem 0 0;
+    }
+  
+  }
+  
+  &__views--tablet,
+  &__like--tablet {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  
+  &__views,
+  &__date,
+  &__likes {
+    color: $silver;
+  }
+  
+  
+  
+  &__icon-views, 
+  &__icon-likes {
+    width: 1.5rem;
+    height: 1rem;
+    margin-right: 1rem;
+  
+    @include desktop {
+      width: 2rem;
+      height: 1.25rem;
+    }
+  }
+  
+  &__container-comment {
+    text-align: left;
+    padding: 1.5rem 0;
+    font-size: 1rem;
+    line-height: 1.3;
+  
+    @include tablet {
+      padding-bottom: 2.5rem;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+  
+    @include desktop {
+      font-size: 1rem;
+      padding: 1.5rem 1.5rem 4rem 0;
+      line-height: 1.5rem;
+    }
+  }
+  
+  &__count {
+    font-size: 1rem;
+  }
+  }
+  
+  .desktop {
+    @include desktop {
+      width: 65%;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+  

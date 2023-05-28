@@ -1,32 +1,41 @@
 import { useState } from "react";
-import avatar from "../assets/images/Mohan-muruge.jpg";
+import avatar from "../../assets/images/Mohan-muruge.jpg";
+import axios from "axios";
+import "./Comments.scss";
+const apiKey = "56fdb86b-8784-43a2-9393-b383c6e4302d";
 
 function Comments(props) {
   const { selectedVideo } = props;
+  const [newComment, setNewComment] = useState('');
 
-  const [comment, setComment] = useState(localStorage.publish || "");
-
-  const handleComment = (e) => {
-    setComment(e.target.value);
-    localStorage.setItem("email", e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setComment(e.target.value);
-    localStorage.setItem("comment", e.target.value);
-  };
+
+    try {
+      const response = await axios.post(
+        `https://project-2-api.herokuapp.com/videos/${selectedVideo.id}/comments/?api_key=${apiKey}`,
+        {
+          name: "Joshua Mann",
+          comment: newComment
+        }
+      );
+      console.log(response.data);
+      const updatedComments = [...selectedVideo.comments, response.data];
+        } catch (error) {
+          console.error(error);
+        }
+
+        setNewComment("");
+  }
+
+
 
   return (
     <div className="desktop">
       <section className="comments">
         <img src={avatar} alt="BrainFlix Avatar" className="comments__avatar" />
 
-        <form
-          className="comments__form"
-          onChange={handleComment}
-          value={comment}
-        >
+        <form className="comments__form" onSubmit={handleSubmit}>
           <label htmlFor="input" className="comments__label">
             <h3 className="comments__form-heading">JOIN THE CONVERSATION</h3>
           </label>
@@ -35,8 +44,10 @@ function Comments(props) {
             className="comments__input"
             id="input"
             placeholder="Add a new comment"
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
           />
-          <button className="comments__button" onClick={handleSubmit}>
+          <button className="comments__button" type="submit">
             COMMENT
           </button>
         </form>

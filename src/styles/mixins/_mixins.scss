@@ -7,54 +7,45 @@ $silver: #afafaf;
 $mercury: #e1e1e1;
 $alabaster: #fafafa;
 
-
-
-
 @mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-        @content;
-    }
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
-        @content;
-    }
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
 }
 
 @mixin comment-section {
-    padding: 1.5rem 2rem;
-
+  padding: 1.5rem 2rem;
 }
 
 @mixin buttons {
-    background-color: $brainflix-blue;
-    color: #fff;
-    border-radius: 4px;
-    font-size: .81rem;
-    font-weight: 500;
-    border: none;
-    font-weight: 600;
-    background-repeat: no-repeat;
-    background-position: 5% 60%;
-    background-size: 1.25rem;
-    cursor: pointer;
-
+  background-color: $brainflix-blue;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.81rem;
+  font-weight: 500;
+  border: none;
+  font-weight: 600;
+  background-repeat: no-repeat;
+  background-position: 5% 60%;
+  background-size: 1.25rem;
+  cursor: pointer;
 }
 
 @mixin input {
-    background-color: $alabaster;
-    border: 1px solid $mercury;
-    border-radius: 4px;
-    
+  background-color: $alabaster;
+  border: 1px solid $mercury;
+  border-radius: 4px;
 }
 
 @mixin avatar {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
-
-
-

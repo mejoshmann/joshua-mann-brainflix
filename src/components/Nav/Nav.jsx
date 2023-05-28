@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import logoImage from "../assets/Logo/BrainFlix-logo.svg";
-import avatar from "../assets/images/Mohan-muruge.jpg";
+import logoImage from "../../assets/Logo/BrainFlix-logo.svg";
+import avatar from "../../assets/images/Mohan-muruge.jpg";
 
 function Navigation() {
   return (
     <>
-      <nav className="nav">
+      <nav className="nav nav__upload--page">
         <div className="nav__head">
-          <Link to="/home" >
+          <Link to="/home">
             <img src={logoImage} alt="BrainFlix Logo" className="nav__logo" />
           </Link>
         </div>

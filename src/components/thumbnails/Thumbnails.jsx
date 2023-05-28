@@ -13,7 +13,7 @@ function Thumbnails(props) {
           .filter((thumbnail) => thumbnail.id !== selectedVideo.id)
           .map((thumbnail) => (
             <li className="thumbnail__item" key={thumbnail.id}>
-              <Link to={`/videos/${thumbnail.id}`} className="thumbnail__link">
+              <Link to={`/videos/${thumbnail.id}`} className="thumbnail__img">
                 <img
                   src={thumbnail.image}
                   className="thumbnail__img"

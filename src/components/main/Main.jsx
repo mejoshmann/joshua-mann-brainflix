@@ -1,5 +1,6 @@
-import heart from "../assets/Icons/likes.svg";
-import views from "../assets/Icons/views.svg";
+import "./main.scss";
+import heart from "../../assets/Icons/likes.svg";
+import views from "../../assets/Icons/views.svg";
 
 function Main(props) {
   const { selectedVideo } = props;
