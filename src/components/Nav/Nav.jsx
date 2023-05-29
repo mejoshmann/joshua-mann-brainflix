@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import logoImage from "../../assets/Logo/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
+import "./Nav.scss";
 
 function Navigation() {
   return (
     <>
-      <nav className="nav nav__upload--page">
+      <nav className="nav">
         <div className="nav__head">
           <Link to="/home">
             <img src={logoImage} alt="BrainFlix Logo" className="nav__logo" />
@@ -22,7 +23,7 @@ function Navigation() {
             />
           </label>
           <Link to="/upload">
-            <button className="nav__upload hidden">UPLOAD</button>{" "}
+            <button className="nav__upload hidden">UPLOAD</button>
           </Link>
 
           <img src={avatar} alt="BrainFlix Avatar" className="nav__avatar" />

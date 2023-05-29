@@ -40,6 +40,7 @@ function Comments(props) {
             <h3 className="comments__form-heading">JOIN THE CONVERSATION</h3>
           </label>
 
+          <div className="comments__tablet--styling">
           <textarea
             className="comments__input"
             id="input"
@@ -50,6 +51,7 @@ function Comments(props) {
           <button className="comments__button" type="submit">
             COMMENT
           </button>
+          </div>
         </form>
       </section>
 

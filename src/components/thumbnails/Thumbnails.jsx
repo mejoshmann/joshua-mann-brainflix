@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Thumbnails.scss";
 
 function Thumbnails(props) {
   const { videoThumbs } = props;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Nav from "../../components/Nav/Nav";
+import Nav from "../nav/Nav";
 import Main from "../../components/main/Main";
 import Comments from "../../components/comments/Comments";
 import Thumbnails from "../../components/thumbnails/Thumbnails";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import uploadImage from "../assets/images/Upload-video-preview.jpg";
-import Nav from "../components/Nav/Nav";
+import Nav from "../components/nav/Nav";
 import "./Upload.scss";
 
 function Upload() {
@@ -65,6 +65,13 @@ function Upload() {
             </div>
           </form>
         </div>
+
+        <div className="videoThumb__buttons hidden">
+              <button className="videoThumb__publish" type="submit">
+                PUBLISH
+              </button>
+              <button className="videoThumb__cancel">CANCEL</button>
+            </div>
       </div>
     </>
   );

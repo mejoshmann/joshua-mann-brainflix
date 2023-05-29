@@ -1,8 +1,7 @@
 @use "../../src/styles/mixins/mixins" as *;
 
-.nav__upload--page {
+.nav {
   border-bottom: 1px solid $mercury;
-  padding-bottom: 1rem;
 }
 
 .videoThumb {
@@ -11,18 +10,28 @@
   display: flex;
   flex-direction: column;
 
+  @include tablet {
+    padding: 0;
+    width: 92%;
+    margin-left: 4%;
+  }
+
   @include desktop {
-    width: 85%;
-    margin-left: 7.5%;
-    display: flex;
+    width: 88%;
+    margin-left: 6%;
   }
 
   &__desktop {
-    border: 1px solid red;
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &__main--heading {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 900;
     padding: 1rem 0;
 
     @include desktop {
@@ -45,9 +54,18 @@
     @include tablet {
       width: 30%;
     }
+
+    @include desktop {
+      width: 37%;
+      height: 14rem;
+      object-fit: cover;
+      padding: 0;
+    }
   }
 
   &__form {
+    @include tablet {
+    }
   }
 
   &__label,
@@ -63,7 +81,6 @@
     width: 100%;
     height: 2.5rem;
     padding: 0.5rem;
-    color: #000;
     margin: 0.25rem 0 1rem 0;
   }
 
@@ -73,7 +90,14 @@
   }
 
   &__videoDescript::placeholder {
-    padding-top: -2rem;
+    font-size: 0.87rem;
+    font-weight: 400;
+    font-family: "avenir";
+    color: #000;
+  }
+
+  &__addVid:active {
+    border: 2xp solid $brainflix-blue;
   }
 
   &__videoDescript:active {
@@ -88,6 +112,13 @@
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
+      padding-top: 1.5rem;
+      margin-top: 1.5rem;
+      border-top: 1px solid $mercury;
+    }
+
+    @include desktop {
+      display: none;
     }
   }
 
@@ -104,6 +135,15 @@
     }
   }
 
+  .hidden {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
   &__cancel {
     color: $brainflix-blue;
     border: #fff;
@@ -113,9 +153,6 @@
     @include tablet {
       padding: 0 4rem;
       order: 1;
-    }
-
-    @include desktop {
     }
   }
 }

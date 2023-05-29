@@ -1,4 +1,4 @@
-import "./main.scss";
+import "./Main.scss";
 import heart from "../../assets/Icons/likes.svg";
 import views from "../../assets/Icons/views.svg";
 
