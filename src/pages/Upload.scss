@@ -1,6 +1,6 @@
 @use "../../src/styles/mixins/mixins" as *;
 
-.nav {
+.upload__borderBottom {
   border-bottom: 1px solid $mercury;
 }
 
@@ -34,7 +34,7 @@
     font-weight: 900;
     padding: 1rem 0;
 
-    @include desktop {
+    @include tablet {
       border-bottom: 1px solid $mercury;
     }
   }
@@ -60,11 +60,6 @@
       height: 14rem;
       object-fit: cover;
       padding: 0;
-    }
-  }
-
-  &__form {
-    @include tablet {
     }
   }
 
@@ -94,14 +89,24 @@
     font-weight: 400;
     font-family: "avenir";
     color: #000;
+    
   }
 
+  &__addVid::placeholder {
+    color: #000;
+  }
+
+  // Active state not working?
   &__addVid:active {
     border: 2xp solid $brainflix-blue;
   }
 
   &__videoDescript:active {
     border: 2px solid $brainflix-blue;
+  }
+
+  &__addVid.error {
+    border: 1px solid #d22d2d;
   }
 
   &__buttons {
@@ -149,6 +154,7 @@
     border: #fff;
     background-color: #fff;
     padding: 10%;
+    cursor: pointer;
 
     @include tablet {
       padding: 0 4rem;

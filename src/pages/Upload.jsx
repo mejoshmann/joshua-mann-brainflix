@@ -5,27 +5,33 @@ import Nav from "../components/nav/Nav";
 import "./Upload.scss";
 
 function Upload() {
+  // Not working properly
   const [publish, setPublish] = useState(localStorage.publish || "");
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const handlePublish = (e) => {
     setPublish(e.target.value);
-    localStorage.setItem("publish", e.target.value);
-    if (publish.value === "") {
-      alert("please add a comment");
-    }
   };
 
+  // Not working properly
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!publish.trim()) {
+      setError(true);
+      alert("Please fill in all fields")
+      return;
+    } 
+    setError(false);
     alert("Thank you for uploading a video");
-    e.target.reset();
     navigate("/home");
+    setPublish("")
   };
 
   return (
     <>
       <Nav />
+      <div className="upload__borderBottom"></div>
       <div className="videoThumb">
         <h1 className="videoThumb__main--heading">Upload Video</h1>
         <h3 className="videoThumb__heading">VIDEO THUMBNAIL</h3>
@@ -46,6 +52,7 @@ function Upload() {
                 placeholder="Add a title to your video"
                 onChange={handlePublish}
                 value={publish}
+                defaultValue=""
               />
             </label>
             <label className="videoThumb__description" id="description">
@@ -53,12 +60,13 @@ function Upload() {
               <input
                 type="text"
                 className="videoThumb__videoDescript"
-                placeholder="Add a description to your video"
+                placeholder="Add a description to your video" 
+                defaultValue=""          
               />
             </label>
 
             <div className="videoThumb__buttons">
-              <button className="videoThumb__publish" type="submit">
+              <button className="videoThumb__publish" type="submit" onClick={handleSubmit}>
                 PUBLISH
               </button>
               <button className="videoThumb__cancel">CANCEL</button>
@@ -67,7 +75,7 @@ function Upload() {
         </div>
 
         <div className="videoThumb__buttons hidden">
-              <button className="videoThumb__publish" type="submit">
+              <button className="videoThumb__publish" type="submit" onClick={handleSubmit}>
                 PUBLISH
               </button>
               <button className="videoThumb__cancel">CANCEL</button>

@@ -38,6 +38,7 @@ Link {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: .5rem 0;
 
     @include tablet {
       width: 100%;
@@ -136,3 +137,5 @@ Link {
     background-color: $brainflix-drkBlue;
   }
 }
+
+
