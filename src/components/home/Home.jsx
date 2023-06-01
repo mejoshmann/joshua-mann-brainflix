@@ -43,7 +43,6 @@ function Home() {
 
   return (
     <>
-      <Nav />
       <Main selectedVideo={selectedVideo} />
       <Comments selectedVideo={selectedVideo} />
       <Thumbnails selectedVideo={selectedVideo} videoThumbs={videoData} />

@@ -20,11 +20,11 @@ function Thumbnails(props) {
                   className="thumbnail__img"
                   alt={thumbnail.title}
                 />
+                <div className="thumbnail__box">
+                  <h3 className="thumbnail__title">{thumbnail.title}</h3>
+                  <h4 className="thumbnail__name">{thumbnail.channel}</h4>
+                </div>
               </Link>
-              <div className="thumbnail__box">
-                <h3 className="thumbnail__title">{thumbnail.title}</h3>
-                <h4 className="thumbnail__name">{thumbnail.channel}</h4>
-              </div>
             </li>
           ))}
       </ul>

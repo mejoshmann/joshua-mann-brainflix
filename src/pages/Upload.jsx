@@ -29,7 +29,6 @@ function Upload() {
 
   return (
     <>
-      <Nav />
       <div className="upload__borderBottom"></div>
       <div className="videoThumb">
         <h1 className="videoThumb__main--heading">Upload Video</h1>
@@ -60,7 +59,8 @@ function Upload() {
                 type="text"
                 className="videoThumb__videoDescript"
                 placeholder="Add a description to your video" 
-                defaultValue=""          
+                defaultValue="" 
+            
               />
             </label>
 

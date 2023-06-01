@@ -70,7 +70,7 @@ function Comments(props) {
                       {
                         (comment.timestamp = new Date(
                           comment.timestamp
-                        ).toLocaleDateString("fr"))
+                        ).toLocaleDateString('us-en'))
                       }
                     </p>
                   </div>
