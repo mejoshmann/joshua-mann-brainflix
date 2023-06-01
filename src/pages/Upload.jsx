@@ -5,16 +5,15 @@ import Nav from "../components/nav/Nav";
 import "./Upload.scss";
 
 function Upload() {
-  // Not working properly
-  const [publish, setPublish] = useState(localStorage.publish || "");
+  const [publish, setPublish] = useState("");
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const handlePublish = (e) => {
+    e.preventDefault();
     setPublish(e.target.value);
   };
 
-  // Not working properly
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!publish.trim()) {

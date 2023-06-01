@@ -2,24 +2,27 @@ import { useState } from "react";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import axios from "axios";
 import "./Comments.scss";
-const apiKey = "56fdb86b-8784-43a2-9393-b383c6e4302d";
 
 function Comments(props) {
   const { selectedVideo } = props;
   const [newComment, setNewComment] = useState('');
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post(
-        `https://project-2-api.herokuapp.com/videos/${selectedVideo.id}/comments/?api_key=${apiKey}`,
+        `http://localhost:1080/videos/${selectedVideo.id}/comments`,
         {
           name: "Joshua Mann",
           comment: newComment
         }
       );
+
       console.log(response.data);
+
+
       const updatedComments = [...selectedVideo.comments, response.data];
         } catch (error) {
           console.error(error);
@@ -27,7 +30,6 @@ function Comments(props) {
 
         setNewComment("");
   }
-
 
 
   return (
