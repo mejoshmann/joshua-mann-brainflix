@@ -15,22 +15,18 @@ function Comments(props) {
       const response = await axios.post(
         `http://localhost:1080/videos/${selectedVideo.id}/comments`,
         {
-          name: "Joshua Mann",
-          comment: newComment
+          comment: newComment,
         }
       );
 
-      console.log(response.data);
 
-
-      const updatedComments = [...selectedVideo.comments, response.data];
         } catch (error) {
           console.error(error);
+          
         }
-
         setNewComment("");
+        
   }
-
 
   return (
     <div className="desktop">

@@ -1,30 +1,37 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import uploadImage from "../assets/images/Upload-video-preview.jpg";
-import Nav from "../components/nav/Nav";
+// import image from "../assets/images/husky.jpg";
 import "./Upload.scss";
+import axios from "axios";
 
 function Upload() {
-  const [publish, setPublish] = useState("");
-  const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const [newVideo, setNewVideo] = useState({});
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
-  const handlePublish = (e) => {
-    e.preventDefault();
-    setPublish(e.target.value);
-  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!publish.trim()) {
-      setError(true);
-      alert("Please fill in all fields")
+    if (!title.trim() || !description.trim()) {
+      alert('Please fill in all fields')
       return;
-    } 
-    setError(false);
-    alert("Thank you for uploading a video");
-    navigate("/home");
-    setPublish("")
+    }
+
+    try {
+  const response = await axios.post (
+    `http://localhost:1080/videos`,
+    {
+        title: title,
+        description: description,
+    }
+  );
+} catch (error) {
+  console.error(error);
+  navigate("/home");
+}
+  setNewVideo({});
   };
 
   return (
@@ -48,9 +55,8 @@ function Upload() {
                 className="videoThumb__addVid"
                 htmlFor="title"
                 placeholder="Add a title to your video"
-                onChange={handlePublish}
-                value={publish}
-                defaultValue=""
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </label>
             <label className="videoThumb__description" id="description">
@@ -58,27 +64,37 @@ function Upload() {
               <input
                 type="text"
                 className="videoThumb__videoDescript"
-                placeholder="Add a description to your video" 
-                defaultValue="" 
-            
+                placeholder="Add a description to your video"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
               />
             </label>
 
             <div className="videoThumb__buttons">
-              <button className="videoThumb__publish" type="submit" onClick={handleSubmit}>
+              <button
+                className="videoThumb__publish"
+                type="submit"
+              >
                 PUBLISH
               </button>
-              <button className="videoThumb__cancel">CANCEL</button>
+              <button type="button" className="videoThumb__cancel">
+                CANCEL
+              </button>
             </div>
           </form>
         </div>
 
         <div className="videoThumb__buttons hidden">
-              <button className="videoThumb__publish" type="submit" onClick={handleSubmit}>
-                PUBLISH
-              </button>
-              <button className="videoThumb__cancel">CANCEL</button>
-            </div>
+          <button
+            className="videoThumb__publish"
+            type="submit"
+          >
+            PUBLISH
+          </button>
+          <button type="button" className="videoThumb__cancel">
+            CANCEL
+          </button>
+        </div>
       </div>
     </>
   );
