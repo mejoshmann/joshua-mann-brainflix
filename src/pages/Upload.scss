@@ -60,6 +60,12 @@
       height: 14rem;
       object-fit: cover;
       padding: 0;
+      display: inline;
+    }
+  }
+
+  &__form {
+    @include desktop {
     }
   }
 
@@ -89,7 +95,6 @@
     font-weight: 400;
     font-family: "avenir";
     color: #000;
-    
   }
 
   &__addVid::placeholder {
@@ -123,7 +128,6 @@
     }
 
     @include desktop {
-      display: none;
     }
   }
 
@@ -140,14 +144,14 @@
     }
   }
 
-  .hidden {
-    display: none;
+  // .hidden {
+  //   display: none;
 
-    @include desktop {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
+  //   @include desktop {
+  //     display: flex;
+  //     justify-content: flex-end;
+  //   }
+  // }
 
   &__cancel {
     color: $brainflix-blue;

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import uploadImage from "../assets/images/Upload-video-preview.jpg";
-// import image from "../assets/images/husky.jpg";
 import "./Upload.scss";
 import axios from "axios";
 
@@ -11,27 +10,23 @@ function Upload() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title.trim() || !description.trim()) {
-      alert('Please fill in all fields')
+      alert("Please fill in all fields");
       return;
     }
 
     try {
-  const response = await axios.post (
-    `http://localhost:1080/videos`,
-    {
+      const response = await axios.post(`http://localhost:1080/videos`, {
         title: title,
         description: description,
+      });
+    } catch (error) {
+      console.error(error);
     }
-  );
-} catch (error) {
-  console.error(error);
-  navigate("/home");
-}
-  setNewVideo({});
+    setNewVideo({});
+    navigate("/home");
   };
 
   return (
@@ -51,7 +46,6 @@ function Upload() {
             <label className="videoThumb__label" id="title">
               TITLE YOUR VIDEO
               <input
-                type="text"
                 className="videoThumb__addVid"
                 htmlFor="title"
                 placeholder="Add a title to your video"
@@ -62,7 +56,7 @@ function Upload() {
             <label className="videoThumb__description" id="description">
               ADD A VIDEO DESCRIPTION
               <input
-                type="text"
+                htmlFor="description"
                 className="videoThumb__videoDescript"
                 placeholder="Add a description to your video"
                 value={description}
@@ -71,10 +65,7 @@ function Upload() {
             </label>
 
             <div className="videoThumb__buttons">
-              <button
-                className="videoThumb__publish"
-                type="submit"
-              >
+              <button className="videoThumb__publish" type="submit">
                 PUBLISH
               </button>
               <button type="button" className="videoThumb__cancel">
@@ -82,18 +73,6 @@ function Upload() {
               </button>
             </div>
           </form>
-        </div>
-
-        <div className="videoThumb__buttons hidden">
-          <button
-            className="videoThumb__publish"
-            type="submit"
-          >
-            PUBLISH
-          </button>
-          <button type="button" className="videoThumb__cancel">
-            CANCEL
-          </button>
         </div>
       </div>
     </>

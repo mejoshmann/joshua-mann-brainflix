@@ -55,8 +55,8 @@ function Comments(props) {
 
       <section className="comment">
         <ul className="comment__list">
-          {selectedVideo.comments?.map((comment, index) => (
-            <li className="comment__item" key={index}>
+          {selectedVideo.comments?.map((comment, id) => (
+            <li className="comment__item" key={id}>
               <div className="comment__boxes">
                 <div className="comment__blank"></div>
                 <div className="comment__box">
@@ -66,7 +66,7 @@ function Comments(props) {
                       {
                         (comment.timestamp = new Date(
                           comment.timestamp
-                        ).toLocaleDateString('us-en'))
+                        ).toLocaleDateString('en-US'))
                       }
                     </p>
                   </div>

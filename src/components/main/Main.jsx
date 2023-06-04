@@ -25,7 +25,7 @@ function Main(props) {
                 {
                   (selectedVideo.timestamp = new Date(
                     selectedVideo.timestamp
-                  ).toLocaleDateString("fr"))
+                  ).toLocaleDateString("en-US"))
                 }
               </div>
             </div>
