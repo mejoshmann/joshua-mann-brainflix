@@ -1,8 +1,8 @@
 @use "../../src/styles/mixins/mixins" as *;
 
-.upload__borderBottom {
-  border-bottom: 1px solid $mercury;
-}
+// .upload__borderBottom {
+//   border-bottom: 1px solid $mercury;
+// }
 
 .videoThumb {
   padding: 0 1rem;
@@ -95,6 +95,9 @@
     font-weight: 400;
     font-family: "avenir";
     color: #000;
+    top: 0px;
+    position: absolute;
+    margin-top: 0.5rem;
   }
 
   &__addVid::placeholder {
@@ -110,7 +113,11 @@
     border: 2px solid $brainflix-blue;
   }
 
-  &__addVid.error {
+  &__videoDescript.empty {
+    border: 1px solid #d22d2d;
+  }
+
+  &__addVid.empty {
     border: 1px solid #d22d2d;
   }
 
@@ -126,9 +133,6 @@
       margin-top: 1.5rem;
       border-top: 1px solid $mercury;
     }
-
-    @include desktop {
-    }
   }
 
   &__publish {
@@ -143,15 +147,6 @@
       order: 2;
     }
   }
-
-  // .hidden {
-  //   display: none;
-
-  //   @include desktop {
-  //     display: flex;
-  //     justify-content: flex-end;
-  //   }
-  // }
 
   &__cancel {
     color: $brainflix-blue;

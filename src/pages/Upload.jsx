@@ -9,11 +9,14 @@ function Upload() {
   const [newVideo, setNewVideo] = useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [isInputEmpty, setIsInputEmpty] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title.trim() || !description.trim()) {
       alert("Please fill in all fields");
+      setIsInputEmpty(true);
       return;
     }
 
@@ -22,11 +25,18 @@ function Upload() {
         title: title,
         description: description,
       });
+      setIsInputEmpty(false);
     } catch (error) {
       console.error(error);
     }
     setNewVideo({});
     navigate("/home");
+
+   
+  };
+
+  const handleCancel = () => {
+    navigate("/Home");
   };
 
   return (
@@ -42,18 +52,18 @@ function Upload() {
             alt="thumbnail"
           ></img>
 
-          <form className="videoThumb__form" onSubmit={handleSubmit}>
+          <form className="videoThumb__form" onSubmit={handleSubmit} required>
             <label className="videoThumb__label" id="title">
               TITLE YOUR VIDEO
               <input
-                className="videoThumb__addVid"
+                className={`videoThumb__addVid ${isInputEmpty ? "empty" : ""}`}
                 htmlFor="title"
                 placeholder="Add a title to your video"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
             </label>
-            <label className="videoThumb__description" id="description">
+            <label className={`videoThumb__description ${isInputEmpty ? "empty" : ""}`} id="description" required>
               ADD A VIDEO DESCRIPTION
               <input
                 htmlFor="description"
@@ -68,7 +78,11 @@ function Upload() {
               <button className="videoThumb__publish" type="submit">
                 PUBLISH
               </button>
-              <button type="button" className="videoThumb__cancel">
+              <button
+                type="button"
+                className="videoThumb__cancel"
+                onClick={handleCancel}
+              >
                 CANCEL
               </button>
             </div>

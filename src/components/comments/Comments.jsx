@@ -5,11 +5,16 @@ import "./Comments.scss";
 
 function Comments(props) {
   const { selectedVideo } = props;
-  const [newComment, setNewComment] = useState('');
-  
+  const [newComment, setNewComment] = useState("");
+  const [isInputEmpty, setIsInputEmpty] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (newComment.trim() === "") {
+      setIsInputEmpty(true);
+      return;
+    }
 
     try {
       const response = await axios.post(
@@ -18,15 +23,22 @@ function Comments(props) {
           comment: newComment,
         }
       );
+      setIsInputEmpty(false);
+    } catch (error) {
+      console.error(error);
+    }
+    setNewComment("");
+  };
 
-
-        } catch (error) {
-          console.error(error);
-          
-        }
-        setNewComment("");
-        
-  }
+  const handleDeleteComment = async (commentId) => {
+    try {
+      await axios.delete(
+        `http://localhost:1080/videos/${selectedVideo.id}/comments/${commentId}`
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="desktop">
@@ -38,17 +50,20 @@ function Comments(props) {
             <h3 className="comments__form-heading">JOIN THE CONVERSATION</h3>
           </label>
 
-          <div className="comments__tablet--styling">
-          <textarea
-            className="comments__input"
-            id="input"
-            placeholder="Add a new comment"
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-          />
-          <button className="comments__button" type="submit">
-            COMMENT
-          </button>
+          <div className="comments__tablet">
+            <textarea
+              className={`comments__input ${isInputEmpty ? "empty" : ""}`}
+              id="input"
+              placeholder="Add a new comment"
+              value={newComment}
+              onChange={(e) => {
+                setNewComment(e.target.value);
+                setIsInputEmpty(false);
+              }}
+            />
+            <button className="comments__button" type="submit">
+              COMMENT
+            </button>
           </div>
         </form>
       </section>
@@ -66,11 +81,20 @@ function Comments(props) {
                       {
                         (comment.timestamp = new Date(
                           comment.timestamp
-                        ).toLocaleDateString('en-US'))
+                        ).toLocaleDateString("en-US"))
                       }
                     </p>
                   </div>
                   <p className="comment__comment">{comment.comment}</p>
+                  <div className="comment__item" key={id}>
+                    {/* not working correctly */}
+                    {/* <button
+                      className="comment__delete-button"
+                      onClick={() => handleDeleteComment(comment.id)}
+                    >
+                      Delete
+                    </button> */}
+                  </div>
                 </div>
               </div>
             </li>
